@@ -48,14 +48,14 @@
             this.TxtResult.Multiline = true;
             this.TxtResult.Name = "TxtResult";
             this.TxtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtResult.Size = new System.Drawing.Size(508, 348);
+            this.TxtResult.Size = new System.Drawing.Size(513, 485);
             this.TxtResult.TabIndex = 1;
             // 
             // FormSorting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(806, 531);
             this.Controls.Add(this.TxtResult);
             this.Controls.Add(this.BtnSortStudents);
             this.Name = "FormSorting";

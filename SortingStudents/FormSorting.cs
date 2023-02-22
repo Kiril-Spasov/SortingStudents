@@ -28,18 +28,25 @@ namespace SortingStudents
             string path = Application.StartupPath + @"\sorting.txt";
             StreamReader streamReader = new StreamReader(path);
 
+            //Read total classes
             clases = Convert.ToInt32(streamReader.ReadLine());
+
+            //Read how many students in each class
             studentsCount = Convert.ToInt32(streamReader.ReadLine());
 
+            //Go through all classes
             for (int i = 0; i < clases; i++)
             {
+                //Go through all students
                 for (int j = 0; j < studentsCount; j++)
                 {
+                    //Store each student in the array
                     students[j] = streamReader.ReadLine();
                 }
 
                 SortStudents(students, studentsCount);
 
+                //Display result
                 TxtResult.Text += "Class #" + (i + 1) + " ordering: " + Environment.NewLine;
 
                 for (int j = 0; j < studentsCount; j++)
@@ -47,12 +54,17 @@ namespace SortingStudents
                     TxtResult.Text += students[j] + Environment.NewLine;
                 }
 
+                //Write the new value for the number of students for the next class
                 studentsCount = Convert.ToInt32(streamReader.ReadLine());
             }
         }
 
         private void SortStudents(string[] students, int studentsCount)
         {
+            //Apply exchange sort - we go through all students and put the correct student in front
+            //then start from pos 2 in the array and do the same
+            //repeat until we reach the end of the array
+            //for better performance - we store the location and we swap the item only when we check all
             int minLocation;
 
             for (int i = 0; i < studentsCount - 1; i++)
@@ -75,9 +87,12 @@ namespace SortingStudents
             bool isGreater = false;
 
             string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            //Array counters
             int[] student1Letters = new int[26];
             int[] student2Letters = new int[26];
 
+            //We count how many of each letter in the alphabet the students names contains
             for (int i = 0; i < alphabet.Length; i++)
             {
                 for (int j = 0; j < student1.Length; j++)
@@ -97,6 +112,7 @@ namespace SortingStudents
                 }
             }
 
+            //Starting from 'A' compare each counter for both students and set the flag accordingly
             for (int i = 0; i < 26; i++)
             {
                 if (student1Letters[i] > student2Letters[i])
@@ -114,6 +130,7 @@ namespace SortingStudents
             return isGreater;
         }
 
+        //Implementing the swap routine
         private void SwapStudents(string[] students, int student1Index, int student2Index)
         {
             string temp = "";
